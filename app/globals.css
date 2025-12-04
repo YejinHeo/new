@@ -1,26 +1,80 @@
-@import "tailwindcss";
+/* app/globals.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 1. 기본 설정 */
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 2. 레이아웃 컨테이너 (화면 중앙 정렬) */
+.layout-container {
+  max-width: 680px;      /* 너비 제한 */
+  margin: 0 auto;        /* 가운데 정렬 */
+  padding: 60px 20px;    /* 여백 */
+  min-height: 100vh;
+}
+
+/* 3. 헤더 전체 (양쪽 끝 정렬) */
+.site-header {
+  display: flex;
+  justify-content: space-between; /* 로고 왼쪽, 메뉴 오른쪽 */
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 40px;
+}
+
+/* 4. [about ㅡ 이름] 부분 (가로 배치 핵심!) */
+.profile-header {
+  display: flex;          /* 가로로 눕히기 */
+  align-items: center;    /* 위아래 중앙 맞추기 */
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;          /* 가로선을 위해 flex 사용 */
+  align-items: center;
+}
+
+/* 5. 가로선 (────) */
+.profile-header h1::after {
+  content: "";
+  display: block;
+  width: 40px;            /* 선 길이 */
+  height: 2px;            /* 선 두께 */
+  background-color: #ccc; /* 선 색상 */
+  margin: 0 15px;         /* 선 양옆 여백 */
+}
+
+/* 6. 이름 링크 */
+.home-link {
+  display: flex;
+  align-items: center;
+}
+
+.profile-header span {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* 7. 기타 */
+.site-footer {
+  margin-top: 80px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.8rem;
 }

@@ -1,0 +1,98 @@
+/* 기본 설정 변수 */
+
+:root {
+  --std-size: 15px;       /* 모든 글씨 크기 통일 */
+  --color-gray: #868e96;
+  --color-green: #556b2f;
+  --color-black: #000;
+}
+
+.resume-container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  
+  /* 전체 폰트 및 크기 초기화 */
+  
+  font-size: var(--std-size);
+}
+
+/* 모든 텍스트 요소의 폰트 설정을 강제로 통일 */
+h1, h2, h3, p, a, span, div {
+  font-size: var(--std-size) !important; /* 크기 강제 통일 */
+  font-weight: normal !important;        /* 굵기 제거 */
+  /* 폰트체 제거 */
+}
+
+/* --- 레이아웃 (배치) --- */
+
+.top-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* 줄 간격 */
+}
+
+/* 라벨 스타일 (# NAME, # KONTAKT) */
+.label {
+  color: var(--color-gray);
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+}
+
+/* 일반 텍스트 아이템 공통 */
+.text-item {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--color-black);
+}
+
+/* 링크 스타일 */
+.link-item {
+  text-decoration: none;
+}
+
+.company-link {
+  color: var(--color-green) !important; /* 색상은 유지 */
+  text-decoration: underline;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e9ecef;
+  margin: 2rem 0;
+}
+
+/* 경력 섹션 */
+.experience-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-spacing {
+  margin-bottom: 1rem;
+}
+
+.company-wrapper {
+  margin-bottom: 0.5rem;
+}
+
+.job-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-details p {
+  color: var(--color-gray) !important; /* 본문 회색 유지 */
+}
+
+.job-period {
+  margin-top: 1.5rem !important;
+}

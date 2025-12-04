@@ -1,0 +1,168 @@
+/* posts.css */
+
+/* 1. 디자인 시스템 변수 정의 (유지보수 용이) */
+:root {
+  --font-main: "NanumSquareNeoLight", sans-serif;
+  --font-serif: "Hahmlet", serif;
+  --font-mono: "Hack", monospace;
+  
+  --color-text: #252121;
+  --color-gray: #868e96;
+  --color-accent: #556b2f; /* darkolivegreen */
+  --color-border: #dee2e6;
+  
+  --width-date-col: 120px; /* 날짜 컬럼 너비 고정 */
+}
+
+/* 2. 공통 레이아웃 컨테이너 (모든 페이지 중앙 정렬) */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0rem, 1.5rem; /* 상하 4rem, 좌우 1.5rem */
+}
+
+/* 3. 유틸리티 & 타이포그래피 */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease-in-out;
+}
+
+h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- [목록 페이지] 스타일 --- */
+
+/* 상단 헤더 영역 (POSTS + HOME 링크) */
+.feed-header {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.feed-header h1 {
+  font-family: var(--font-main);
+  font-size: 80px; /* 너무 크면 모바일에서 깨지므로 적절히 조정 */
+  font-weight: 700;
+  line-height: 1;
+}
+
+.feed-header a {
+  font-family: var(--font-main);
+  font-size: 16px;
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.feed-header a:hover {
+  color: var(--color-gray);
+}
+
+/* 리스트 그리드 시스템 (헤더와 아이템 공통 적용) */
+.grid-row {
+  display: grid;
+  grid-template-columns: var(--width-date-col) 1fr; /* 120px | 나머지 */
+  gap: 1.5rem;
+  align-items: baseline;
+}
+
+/* 리스트 헤더 (# DATE # TITLE) */
+.posts-list-header {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-text); /* 진한 구분선 */
+  margin-bottom: 0;
+  
+  font-family: var(--font-main);
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* 개별 포스트 카드 */
+.post-card {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border); /* 연한 구분선 */
+  cursor: pointer;
+}
+
+.post-card:hover .post-title {
+  color: var(--color-accent);
+}
+
+.post-date {
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-gray);
+}
+
+.post-title {
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text);
+  
+  /* 말줄임표 처리 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* --- [상세 페이지] 스타일 --- */
+
+.post-article {
+  margin-top: 2rem;
+}
+
+.post-meta-header {
+  margin-bottom: 1.5rem;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--color-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post-meta-header a {
+  width: fit-content;
+  text-decoration: underline;
+}
+
+.post-meta-header a:hover {
+  color: var(--color-accent);
+}
+
+.article-title {
+  font-family: var(--font-main);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 2rem 0;
+}
+
+/* 마크다운 콘텐츠 내부 스타일 */
+.markdown-body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.markdown-body p {
+  margin-bottom: 1.5rem;
+}
+
+.markdown-body a {
+  color: #007bff;
+  text-decoration: underline;
+}
